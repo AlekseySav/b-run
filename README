@@ -1,0 +1,58 @@
+build & run with qemu:
+$ make run
+
+shell:
+args not supported, available to redirect stdin/stdout with "<stdin >stdout"
+
+these are all builtin files:
+
+b-run -- b runtime, auto-included by compiler
+
+bc -- compile b source code
+usage/example:
+L: bc <calc.b >calc
+
+cat -- input/print/copy text file
+usage/example:
+L: cat <calc.b
+
+calc.b -- simple calculator written in b
+usage/example:
+L: bc <calc.b >calc
+L: calc
+a=15
+b=3*a
+$b
+ctrl+x
+
+clear -- clear screen
+usage/expample:
+L: clear
+
+edit -- edit file
+-> ctrl+w, ctrl+a, ctrl+s, ctrl+d -- move cursor (within one page)
+-> ctrl+r, ctrl+e -- page up, page down
+-> ctrl+q -- save & quit
+-> ctrl+p -- put command
+usage/example:
+L: edit
+calc.b
+
+hexdump -- dump binary file
+usage/example:
+L: hexdump <b-run
+
+lib.b -- b standard library
+auto-included by compiler
+
+lite -- lite kernel itself
+
+ls -- list all files
+usage/example:
+L: ls
+
+shell -- shell itself
+
+test -- test some functional
+usage/example:
+L: test
