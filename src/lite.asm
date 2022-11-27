@@ -247,7 +247,7 @@ klmap:  db      0, 27, "1234567890-=", 8, 9
         db      "\zxcvbnm,./", 0x81                     ; 0x81 = right shift
         db      "*", 0x83, " ", 0x84                    ; 0x83 = alt, 0x84 = caps
         db      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,     ; F1-F10, numlock, scrolllock
-        db      0, 0, 0, "-", 0, 0, 0, "+", 0, 0,0, 0   ; numpad
+        db      0, 18, 0, "-", 16, 0, 17, "+", 0, 19, 0, 0   ; numpad
         db      0x7f                                    ; delete
         db      0, 0, 0, 0, 0                           ; ---, F11, F12
 kumap:  db      0, 27, "!@#$%^&*()_+", 8, 9

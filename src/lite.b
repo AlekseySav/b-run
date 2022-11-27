@@ -142,7 +142,7 @@ updcur() {
 
 coutchar(c) {
     switch (c) {
-        case '*n':  y++, updscr(); /* break; */
+        case '*n':  while (x < columns) coutchar(' '); y++, updscr(); /* break; */
         case '*r':  x = 0; break;
         case '*t':  x = x + 8 - x % 8; break;
         case '*b':  x--; coutchar(' '); /* break; */
