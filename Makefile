@@ -21,6 +21,11 @@ CFLAGS	= -Wno-implicit-int -Wno-implicit-function-declaration -Wno-multichar -Wn
 %.o: %.s
 	as1 <$< >$@
 
+%: %.s
+	as1 <$< >$@.so
+	as2 $@.so >$@
+	rm $@.so
+
 src/syscall.asm: src/lite.asm
 	cat $< > $@
 

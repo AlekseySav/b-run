@@ -21,4 +21,4 @@ poolmap:    .=.+[LINES/8]
 
 outbuf:     .=.+80
 
-bsslen:
+bsslen = .-bss
