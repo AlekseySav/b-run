@@ -474,7 +474,7 @@ main() {
     blk_init();
     fs_init();
     printf("%s*n", libmark());
-    execv("shell", 0, 0);
+    execv("sh", 0, 0);
     close(3);
     rwblk(fblock, 1, 1);
     printf("%d*n", dirsiz);

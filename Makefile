@@ -1,6 +1,6 @@
 tools 	= tools/boot tools/bc tools/mkfs
-tsource	= src/lite src/b-run src/shell src/bc src/edit2 src/ls src/cat src/hexdump src/clear src/test src/edit src/sizeof src/as src/as2 src/a src/cmp src/ed src/hex
-source  = $(tsource) src/lib.b src/calc.b src/a.s src/as-src/as11.s src/as-src/as12.s src/1.txt src/lite.b src/ed-src/ed3.s
+tsource	= src/lite src/b-run src/sh src/bc src/ls src/cat src/clear src/test src/edit src/sizeof src/as src/as2 src/a src/cmp src/ed src/hex
+source  = $(tsource) src/lib.b src/calc.b src/a.s src/as-src/as11.s src/as-src/as12.s src/lite.b src/ed-src/ed3.s src/libc.asm
 CFLAGS	= -Wno-implicit-int -Wno-implicit-function-declaration -Wno-multichar -Wno-incompatible-pointer-types -Wno-int-conversion -fsanitize=undefined,address
 
 %.bo: %.b
@@ -37,6 +37,9 @@ src/ls: src/ls.c
 	tools/ccom $< $@
 
 src/hex: src/hex.c
+	tools/ccom $< $@
+
+src/sh: src/sh.c
 	tools/ccom $< $@
 
 %: %.s

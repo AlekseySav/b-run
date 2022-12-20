@@ -137,5 +137,17 @@ _printn: dw $+2
         add     sp, 2
         ret
 
+_puts:  dw $+2
+        mov     bx, sp
+        mov     si, [bx+2]
+.1:     lodsb
+        test    al, al
+        jz      .2
+        push    ax
+        call    [_putchar]
+        add     sp, 2
+        jmp     .1
+.2:     ret
+
 storage:
         dw      $
