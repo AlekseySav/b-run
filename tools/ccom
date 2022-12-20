@@ -1,0 +1,31 @@
+#!/bin/bash
+
+run=0
+asm=1
+
+if [[ $1 == "-S" ]]; then
+    asm=0
+    shift 1
+fi
+
+if [[ $1 == "-run" ]]; then
+    run=1
+    shift 1
+fi
+
+if [[ $# -ne 2 ]]; then
+    echo "usage: tools/ccom [-S] [-run] <input.c> <output>" >&2
+    exit 1
+fi
+
+tools/cc <$1 | tools/generate-code.py >$2.asm # generate assembly code
+
+if [[ $asm -ne 0 ]]; then
+    cat src/libc.asm >>$2.asm
+    nasm $2.asm -o $2
+    rm $2.asm
+fi
+
+if [[ $run -ne 0 ]]; then
+    qemu-system-x86_64 $2 2>/dev/null
+fi

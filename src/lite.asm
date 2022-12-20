@@ -129,6 +129,7 @@ sys:    push    ds
         mov     es, cx
         mov     bx, [databgn]
         add     bx, 6                                   ; syscall table
+        xor     ah, ah
         shl     ax, 1
         add     bx, ax                                  ; systab[ax]
         mov     bx, [bx]

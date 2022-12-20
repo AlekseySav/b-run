@@ -1,5 +1,5 @@
 tools 	= tools/boot tools/bc tools/mkfs
-tsource	= src/lite src/b-run src/shell src/bc src/edit2 src/ls src/cat src/hexdump src/clear src/test src/edit src/sizeof src/as src/as2 src/a src/cmp src/ed
+tsource	= src/lite src/b-run src/shell src/bc src/edit2 src/ls src/cat src/hexdump src/clear src/test src/edit src/sizeof src/as src/as2 src/a src/cmp src/ed src/hex
 source  = $(tsource) src/lib.b src/calc.b src/a.s src/as-src/as11.s src/as-src/as12.s src/1.txt src/lite.b src/ed-src/ed3.s
 CFLAGS	= -Wno-implicit-int -Wno-implicit-function-declaration -Wno-multichar -Wno-incompatible-pointer-types -Wno-int-conversion -fsanitize=undefined,address
 
@@ -20,6 +20,24 @@ CFLAGS	= -Wno-implicit-int -Wno-implicit-function-declaration -Wno-multichar -Wn
 
 %.o: %.s
 	as1 <$< >$@
+
+src/test-c: src/test-c.c
+	tools/ccom $< $@
+
+src/clear: src/clear.c
+	tools/ccom $< $@
+
+src/sizeof: src/sizeof.c
+	tools/ccom $< $@
+
+src/cat: src/cat.c
+	tools/ccom $< $@
+
+src/ls: src/ls.c
+	tools/ccom $< $@
+
+src/hex: src/hex.c
+	tools/ccom $< $@
 
 %: %.s
 	as1 <$< >$@.so

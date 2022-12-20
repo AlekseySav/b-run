@@ -1,0 +1,11 @@
+exit = 0
+alloc = 1
+free = 2
+open = 3
+close = 4
+read = 5
+write = 6
+seek = 7
+dup = 8
+dup2 = 9
+exec = 10
